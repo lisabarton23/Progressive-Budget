@@ -21,8 +21,14 @@ db.createObjectStore ('budget', {autoIncrement: true});
 
 
 }
+request.onerror = function (e) {
+    console.log(`Woops! ${e.target.errorCode}`);
+  };
+  
 request.onsuccess = function (e) {
 
+    const transaction = db.transaction(['budgetStore'], 'readwrite')
 
+    .add({name: "job deposit", value: '1000', date: '2/02/2021'})
 
 }
